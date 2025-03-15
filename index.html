@@ -44,12 +44,14 @@
     </button>
     <script>
         function handleClick() {
+            const refreshTokensApi = "https://script.google.com/macros/s/AKfycby95o6CQaizSXzT-HAJg476xlFI7pliUKxM3Pkzscc0jxiMCgIbD1xBR1vje5Zp-t_X/exec";
+
             const spinner = document.getElementById('spinner');
             const buttonText = document.getElementById('button-text');
             spinner.style.display = 'inline-block';
             buttonText.textContent = 'Working...';
             
-            fetch('https://script.google.com/macros/s/AKfycbyJrjxLHtPq-i3ZP_DcNUoh28WXvT6Mpwaw3dNi6ELwHt5UNKgX4fpisQnpE3MSneVK/exec')
+            fetch(refreshTokensApi)
                 .then(response => response.json())
                 .then(data => {
                 })
@@ -57,7 +59,7 @@
                 })
                 .finally(() => {
                     spinner.style.display = 'none';
-                    buttonText.textContent = 'Get login code';
+                    buttonText.textContent = 'Get login codes';
                 });
         }
     </script>
